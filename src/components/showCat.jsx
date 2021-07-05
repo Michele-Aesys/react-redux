@@ -9,8 +9,8 @@ console.log(cats,loading);
             <div>
                 <button onClick={()=>dispatch(fetchCat())}>Show Cat</button>
                 </div>
-            {cats.length>0?cats.map((elem)=>{
-                return <img src={elem[0].url}></img>
+            {cats.length>0?cats.map((elem,index)=>{
+                return <img key={index} src={elem[0].url}></img>
                     }):<div>{loading}</div>}
     </div>
 }
