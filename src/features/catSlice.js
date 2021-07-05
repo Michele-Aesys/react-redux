@@ -14,6 +14,7 @@ import { getCat } from "../api/api";
     initialState: {cats:[], loading:""},
     reducers: {
         GET_CAT:(state,action)=>{state.cats.push(action.payload)},
+        GET_CAT_REQUESTED:()=>{},
         SET_LOADING:(state)=>{state.loading="Loading..."},
         SET_LOADED:(state)=>{state.loading=""}
     },
@@ -27,7 +28,7 @@ import { getCat } from "../api/api";
     //   })
     // }
   })
-  export const { GET_CAT, SET_LOADED ,SET_LOADING} = catSlice.actions
+  export const { GET_CAT, SET_LOADED ,SET_LOADING,GET_CAT_REQUESTED} = catSlice.actions
 
   export default catSlice.reducer
 
