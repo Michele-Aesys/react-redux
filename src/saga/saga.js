@@ -9,17 +9,16 @@ import { GET_CAT,SET_LOADING,SET_LOADED,GET_CAT_REQUESTED} from '../features/cat
 import { getCat } from '../api/api'
 
 function* getCatsSaga (){
-    yield put({type:SET_LOADING.type})
+    yield put(SET_LOADING())
 
     const cats = yield call(getCat)
 
     
-    yield put({type:GET_CAT.type , payload:cats})
+    yield put(GET_CAT(cats))
     
-    yield put({type:SET_LOADED.type})
+    yield put(SET_LOADED())
 }
 
 export default function* catSaga(){
-    console.log(GET_CAT.type)
-    yield takeEvery(GET_CAT_REQUESTED.type,getCatsSaga)
+    yield takeEvery(GET_CAT_REQUESTED,getCatsSaga)
 }
